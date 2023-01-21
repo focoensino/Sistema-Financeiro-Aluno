@@ -9,7 +9,20 @@ function onChangePassword() {
 }
 
 function login() {
-    window.location.href = "pages/home/home.html";
+
+    firebase.auth().signInWithEmailAndPassword(form.email().value,form.password().value).then(response =>{
+
+        console.log('sucess',response)
+        window.location.href = "pages/home/home.html";
+        
+        }).catch(error =>{
+            console.log('error',error)
+            alert('Usuario ou senha invalidos')
+        
+        })
+
+
+  //  
 }
 
 function register() {
